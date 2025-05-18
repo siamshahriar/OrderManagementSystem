@@ -12,7 +12,7 @@
           routerLink="/orders"
           class="bg-gray-100 text-gray-700 hover:text-blue-600 font-semibold px-4 py-2 rounded-lg hover:bg-blue-100 transition duration-200 ease-in-out"
         >
-          Orders ({{ ordersService.orders().length }})
+          Orders ({{ ordersService.getTotalQuantity() }})
         </a>
       </nav>
     </div>

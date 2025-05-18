@@ -33,7 +33,7 @@ export class ProductComponent {
   product = input.required<Product>();
   btnClicked = output();
   onOrderClick() {
-    this.ordersService.addToCart(this.product());
+    this.ordersService.addToCart(this.product(), 1);
     this.btnClicked.emit(); // Emit event to parent if needed
   }
 }

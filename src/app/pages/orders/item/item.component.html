@@ -1,18 +1,58 @@
-<div class="bg-white shadow-md border rounded-xl p-6 flex gap-4 items-center">
+<div
+  class="bg-white shadow-lg border border-gray-200 rounded-2xl p-6 flex items-center gap-6"
+>
   <img
-    [src]="item().images[0]"
-    [alt]="item().title"
-    class="w-[50px] h-[50px] object-contain"
+    [src]="item().product.images[0]"
+    [alt]="item().product.title"
+    class="w-16 h-16 object-contain rounded-lg border border-gray-100"
   />
-  <div class="flex flex-col">
-    <span class="text-md font-bold">{{ item().title }}</span>
-    <span class="text-sm"> {{ "$" + item().price }}</span>
+  <div class="flex flex-col flex-1">
+    <span class="text-lg font-bold text-gray-900">{{
+      item().product.title
+    }}</span>
+    <span class="text-base font-semibold text-green-600 mt-1">{{
+      "$" + item().product.price
+    }}</span>
+    <div class="mt-4 flex items-center gap-2">
+      <button
+        class="w-8 h-8 flex items-center justify-center rounded-full border border-gray-300 bg-gray-50 text-gray-700 hover:bg-red-100 hover:text-red-600 transition"
+        aria-label="Decrease quantity"
+        (click)="onDecrementClick()"
+        [disabled]="item().quantity === 1"
+      >
+        −
+      </button>
+      <span
+        class="inline-flex items-center px-4 py-1 rounded-full bg-gray-100 text-gray-700 text-base font-medium shadow-sm"
+      >
+        {{ item().quantity }}
+      </span>
+      <button
+        class="w-8 h-8 flex items-center justify-center rounded-full border border-gray-300 bg-gray-50 text-gray-700 hover:bg-green-100 hover:text-green-600 transition"
+        aria-label="Increase quantity"
+        (click)="onIncrementClick()"
+      >
+        +
+      </button>
+    </div>
   </div>
-  <div class="flex-1"></div>
   <button
     (click)="onRemoveClick()"
-    class="bg-red-600 text-white font-semibold px-4 py-2 rounded-lg hover:bg-red-700 transition duration-300 ease-in-out"
+    class="ml-4 bg-red-600 text-white font-bold px-5 py-2 rounded-xl shadow-md hover:bg-red-700 transition duration-200"
   >
+    <svg
+      class="w-5 h-5 inline-block mr-2 -mt-1"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      viewBox="0 0 24 24"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M6 18L18 6M6 6l12 12"
+      />
+    </svg>
     Delete
   </button>
 </div>

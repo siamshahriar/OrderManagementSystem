@@ -1,10 +1,24 @@
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
   <h1 class="text-3xl font-semibold text-gray-900 mb-6">Your Orders</h1>
-  <div class="p-6 flex flex-col gap-4">
-    @for (item of ordersService.orders(); track item.id) {
+  <div class="p-6 flex flex-col gap-4 bg-white rounded-xl shadow">
+    @for (item of ordersService.orders(); track item.product.id) {
     <app-item [item]="item"></app-item>
     }
+    <!-- Total and Checkout Section -->
+    <div
+      class="mt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between border-t pt-6 gap-4"
+    >
+      <div class="text-xl font-bold text-gray-800">
+        Total Price:
+        <span class="text-green-600">
+          ${{ ordersService.getTotalPrice() }}
+        </span>
+      </div>
+      <button
+        class="w-full sm:w-auto bg-blue-600 text-white font-semibold px-8 py-3 rounded-lg shadow hover:bg-blue-700 text-lg transition"
+      >
+        Checkout
+      </button>
+    </div>
   </div>
 </div>
-
-<div class="p-6 flex flex-col gap-4"></div>
