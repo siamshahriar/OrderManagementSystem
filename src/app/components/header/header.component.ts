@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { OrdersService } from '../../services/orders.service';
 
@@ -10,4 +10,9 @@ import { OrdersService } from '../../services/orders.service';
 })
 export class HeaderComponent {
   ordersService = inject(OrdersService);
+  orders = computed(() => this.ordersService.orders());
+
+  ngOnInit() {
+    this.ordersService.fetchOrders();
+  }
 }

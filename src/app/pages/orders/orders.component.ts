@@ -10,4 +10,6 @@ import { ItemComponent } from './item/item.component';
 })
 export class OrdersComponent {
   ordersService = inject(OrdersService);
+
+  
 }
