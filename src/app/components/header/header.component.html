@@ -7,13 +7,22 @@
       >
         EasyShop
       </h1>
-      <nav>
+      <nav class="flex items-center gap-4">
         <a
           routerLink="/orders"
           class="bg-gray-100 text-gray-700 hover:text-blue-600 font-semibold px-4 py-2 rounded-lg hover:bg-blue-100 transition duration-200 ease-in-out"
         >
           Orders ({{ ordersService.getTotalQuantity() }})
         </a>
+        <!-- Show logout button if store.user() exists -->
+        @if (store.user()) {
+        <button
+          class="bg-red-500 text-white font-semibold px-4 py-2 rounded-lg hover:bg-red-600 transition duration-200 ease-in-out"
+          (click)="store.logout()"
+        >
+          Logout
+        </button>
+        }
       </nav>
     </div>
   </div>

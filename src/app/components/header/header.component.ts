@@ -1,6 +1,7 @@
 import { Component, computed, inject, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { OrdersService } from '../../services/orders.service';
+import { AppStore } from '../../app.store';
 
 @Component({
   selector: 'app-header',
@@ -11,6 +12,7 @@ import { OrdersService } from '../../services/orders.service';
 export class HeaderComponent {
   ordersService = inject(OrdersService);
   orders = computed(() => this.ordersService.orders());
+  store = inject(AppStore);
 
   ngOnInit() {
     this.ordersService.fetchOrders();
