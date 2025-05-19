@@ -41,6 +41,13 @@ export const AppStore = signalStore(
         //navigate to login page
         router.navigate(['/login']);
       },
+
+      signup: async (email: string, password: string) => {
+        console.log('signUp fired');
+        await authService.signup(email, password);
+        //navigate to products list page
+        router.navigate(['/products']);
+      },
     })
   )
 );

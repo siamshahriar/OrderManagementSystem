@@ -1,10 +1,11 @@
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { Component, inject } from '@angular/core';
 import { AppStore } from '../../app.store';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-login',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, RouterLink],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
 })

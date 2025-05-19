@@ -2,6 +2,7 @@ import { User } from './../../app.store';
 import { inject, Injectable, signal } from '@angular/core';
 import { FirebaseService } from './firebase.service';
 import {
+  createUserWithEmailAndPassword,
   onAuthStateChanged,
   signInWithEmailAndPassword,
   signOut,
@@ -59,5 +60,13 @@ export class AuthService {
 
   logout() {
     return signOut(this.firebaseService.auth);
+  }
+
+  signup(email: string, password: string) {
+    return createUserWithEmailAndPassword(
+      this.firebaseService.auth,
+      email,
+      password
+    );
   }
 }

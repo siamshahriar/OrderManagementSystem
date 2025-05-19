@@ -7,6 +7,7 @@ import {
   redirectLoginIfNotAuthenticated,
   redirectToProductPageIfAuthenticated,
 } from './components/shared/guards/auth.guards';
+import { SignupComponent } from './features/signup/signup.component';
 
 export const routes: Routes = [
   {
@@ -32,6 +33,11 @@ export const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
+    canActivate: [redirectToProductPageIfAuthenticated()],
+  },
+  {
+    path: 'signup',
+    component: SignupComponent,
     canActivate: [redirectToProductPageIfAuthenticated()],
   },
 ];
