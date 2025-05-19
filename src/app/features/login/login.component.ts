@@ -18,8 +18,9 @@ export class LoginComponent {
   }
   store = inject(AppStore);
   OnSubmitLogin() {
-    this.store.login();
-    console.log(this.loginForm.value);
+    const email = this.loginForm.get('email').value;
+    const password = this.loginForm.get('password').value;
+    this.store.login(email, password);
     // Perform login logic here
   }
 }

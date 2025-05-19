@@ -17,4 +17,8 @@ export class HeaderComponent {
   ngOnInit() {
     this.ordersService.fetchOrders();
   }
+
+  onLogOut() {
+    this.store.logout();
+  }
 }

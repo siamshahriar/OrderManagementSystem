@@ -1,4 +1,4 @@
-<header class="bg-white shadow-md">
+<header class="sticky top-0 bg-white z-50 shadow-md">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center py-4">
       <h1
@@ -15,14 +15,14 @@
           Orders ({{ ordersService.getTotalQuantity() }})
         </a>
         <!-- Show logout button if store.user() exists -->
-        @if (store.user()) {
+        <!-- @if (store.user()) {
+          } -->
         <button
           class="bg-red-500 text-white font-semibold px-4 py-2 rounded-lg hover:bg-red-600 transition duration-200 ease-in-out"
-          (click)="store.logout()"
+          (click)="onLogOut()"
         >
           Logout
         </button>
-        }
       </nav>
     </div>
   </div>

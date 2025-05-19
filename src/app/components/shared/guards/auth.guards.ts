@@ -1,11 +1,15 @@
 import { inject } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
 import { AppStore } from '../../../app.store';
+import { AuthService } from '../../../shared/services/auth.service';
 
 export function redirectLoginIfNotAuthenticated(): CanActivateFn {
-  return (route) => {
-    const user = inject(AppStore).user();
+  return async (route) => {
+    const authService = inject(AuthService);
     const router = inject(Router);
+    const user = await authService.getAuthState();
+    // const user = inject(AuthService);
+    // console.log('user', user);
     if (!user) {
       // User is not authenticated, redirect to login page
       return router.parseUrl('/login');
@@ -15,9 +19,12 @@ export function redirectLoginIfNotAuthenticated(): CanActivateFn {
 }
 
 export function redirectToProductPageIfAuthenticated(): CanActivateFn {
-  return (route) => {
-    const user = inject(AppStore).user();
+  return async (route) => {
+    const authService = inject(AuthService);
     const router = inject(Router);
+    const user = await authService.getAuthState();
+    // const user = inject(AuthService).user();
+    // console.log('user', user);
     if (user) {
       // User is not authenticated, redirect to login page
       return router.parseUrl('/products');
