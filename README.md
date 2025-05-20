@@ -12,7 +12,7 @@ This is the frontend of a simple e-commerce app built using **Angular 19**, **Fi
 
 ## 🔐 Authentication
 
-User authentication (Signup, Login, Logout) is implemented using **Firebase Authentication**. 
+User authentication (Signup, Login, Logout) is implemented using **Firebase Authentication**.
 
 - Unauthenticated users are redirected to the Login page.
 - Authenticated users are redirected to the Product List page.
@@ -47,9 +47,6 @@ User authentication (Signup, Login, Logout) is implemented using **Firebase Auth
 
 The frontend is deployed on **Vercel**.
 
-> 🔗 [Live App Link (add yours here)](https://order-management-system-orpin.vercel.app)
-Demo Login: Email: test@test.com Password: 12345678
-Or Sign Up option available !
-
-
-
+> 🔗 https://order-management-system-orpin.vercel.app
+> Demo Login: Email: test@test.com Password: 12345678
+> Or Sign Up option available !
